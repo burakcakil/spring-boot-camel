@@ -26,7 +26,7 @@ Execute the command below:
 mvn spring-boot:run
 ```
 
-#Testing the service
+# Testing the service
 
 There are 2 test cases, one is for the Camel component, the other is for the REST Component. Both tests can be run by typing:
 
