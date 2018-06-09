@@ -14,8 +14,8 @@ public class RESTController {
 	ProducerTemplate pt;
 	
     @RequestMapping(name="/location", method=RequestMethod.GET, produces = "application/json")
-    public String getLocation(@RequestParam(value="address", defaultValue="Istanbul") String address) {
-        String response = pt.requestBody("direct:firstRoute",address, String.class);
+    public GeocodeResponse getLocation(@RequestParam(value="address", defaultValue="Istanbul") String address) {
+        GeocodeResponse response = pt.requestBody("direct:firstRoute",address, GeocodeResponse.class);
     	return response;
     }
 }

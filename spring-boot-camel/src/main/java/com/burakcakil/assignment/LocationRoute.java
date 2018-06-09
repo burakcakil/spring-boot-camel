@@ -28,7 +28,7 @@ public class LocationRoute extends RouteBuilder {
       		.setHeader(Exchange.HTTP_QUERY,body().prepend("address="))
             .setHeader(Exchange.CONTENT_TYPE,constant("application/json"))
             .to("http4:maps.googleapis.com/maps/api/geocode/xml?key=AIzaSyDucnted4Cg19cvWLYQaeYMkI2g8-2iWtQ")
-            .unmarshal(jaxbDataFormat)
-            .marshal(jacksonDataFormat);
+            .unmarshal(jaxbDataFormat);
+            //.marshal(jacksonDataFormat);
    }
 }

@@ -9,20 +9,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.burakcakil.assignment.GeocodeResponse;
 import com.burakcakil.assignment.RESTController;
 
-import java.util.List;
-import static java.util.Collections.singletonList;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.hamcrest.core.Is.is;
-import static org.mockito.BDDMockito.given;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.hamcrest.Matchers.containsString;
+import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(RESTController.class)
@@ -36,8 +32,15 @@ public class RESTControllerTest {
 	
 	@Test
 	public void testGetLocation() throws Exception{
-		this.mvc.perform(get("/location").contentType(APPLICATION_JSON)).andDo(print()).andExpect(status().isOk())
-        .andExpect(content().string(containsString("Istanbul")));
+		GeocodeResponse response = new GeocodeResponse();
+		response.setAddress("Istanbul, Turkey");
+		response.setLat("41.0082376");
+		response.setLng("28.9783589");
+		response.setStatus("OK");
+		
+		given(restController.getLocation("Istanbul")).willReturn(response);
+		
+		this.mvc.perform(get("/location").requestAttr("address", "Istanbul").contentType(APPLICATION_JSON)).andExpect(status().isOk());
 		
 	}
 

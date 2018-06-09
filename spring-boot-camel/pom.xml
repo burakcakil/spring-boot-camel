@@ -3,8 +3,13 @@
   <groupId>spring-boot-camel</groupId>
   <artifactId>spring-boot-camel</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
   <dependencies>
+  <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -16,13 +21,8 @@
             <scope>test</scope>
             <version>1.5.10.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <scope>test</scope>
-            <version>2.4.0</version>
-        </dependency>
-        <dependency> <groupId>org.apache.camel</groupId> 
+        <dependency> 
+        <groupId>org.apache.camel</groupId> 
         <artifactId>camel-test</artifactId>
          <version>2.21.0</version> 
          <scope>test</scope> </dependency>
@@ -30,12 +30,6 @@
     <groupId>org.apache.camel</groupId>
     <artifactId>camel-spring-boot-starter</artifactId>
     <version>2.21.0</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.camel</groupId>
-    <artifactId>camel-netty4-http</artifactId>
-    <version>2.21.0</version>
-    <!-- use the same version as your Camel core version -->
 </dependency>
 <dependency>
     <groupId>org.apache.camel</groupId>
@@ -53,26 +47,11 @@
   <artifactId>camel-jackson</artifactId>
   <version>2.21.0</version>
 </dependency>
-<dependency>
-  <groupId>org.apache.camel</groupId>
-  <artifactId>camel-servlet</artifactId>
-  <version>2.21.0</version>
-</dependency>
-<dependency>
+	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter</artifactId>
 		<version>1.5.10.RELEASE</version>
-	</dependency>
-<dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-xmljson</artifactId>
-            <version>2.21.0</version>
-        </dependency>
-        <dependency>
-            <groupId>xom</groupId>
-            <artifactId>xom</artifactId>
-            <version>1.2.5</version>
-        </dependency>
+	</dependency>        
     <dependency>
     <groupId>org.eclipse.persistence</groupId>
     <artifactId>org.eclipse.persistence.moxy</artifactId>
@@ -85,7 +64,7 @@
 </dependency>
 </dependencies>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
