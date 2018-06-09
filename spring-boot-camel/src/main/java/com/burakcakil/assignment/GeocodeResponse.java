@@ -1,6 +1,7 @@
 package com.burakcakil.assignment;
 
 
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,11 +11,18 @@ import javax.xml.bind.annotation.XmlType;
 
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 
+/*
+ *  @author: Burak Cakil
+ *  
+ *  GeocodeResponse is the Pojo object for XML and JSON mapping. Pretty straightforward.
+ */
+
 @XmlRootElement(name = "GeocodeResponse")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType
 public class GeocodeResponse {
 	
+	//Nested XML objects are reachable by using XmlPath strings. Eclipse Moxy is used for this purpose.
 	private String status;
 	@XmlPath("result/geometry/location/lat/text()")
 	private String lat;
